@@ -60,6 +60,19 @@
 .slide-up {
   animation: slideUp 0.5s ease forwards;
 }
+  
+  @keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 </style>
 </head>
 <body>
@@ -96,22 +109,31 @@ document.querySelectorAll('.button').forEach(button => {
       document.getElementById(indicators[userInput.length - 1]).style.display = 'block';
     }
 
-    // 사용자 입력이 4개가 되었을 때의 처리
     if (userInput.length === 4) {
-      // 성공 또는 실패 처리 전에 짧은 지연을 추가
       setTimeout(() => {
         if (userInput.join('') === correctInput.join('')) {
           document.body.classList.add('slide-up');
           setTimeout(() => {
             window.location.href = 'phone.html';
-          }, 500); // 애니메이션 지속 시간과 일치해야 함
+          }, 500);
         } else {
+          // 진동 (100ms 동안)
+          if (navigator.vibrate) {
+            navigator.vibrate(100);
+          }
+          // 화면 흔들기
+          document.body.classList.add('shake');
+          // 짧은 시간 후에 shake 클래스를 제거하여 애니메이션을 초기화
+          setTimeout(() => {
+            document.body.classList.remove('shake');
+          }, 820); // 애니메이션 지속 시간에 맞춤
+
           userInput = [];
           indicators.forEach(indicator => {
             document.getElementById(indicator).style.display = 'none';
           });
         }
-      }, 200); // 네번째 인디케이터가 충분히 보이도록 하기 위한 짧은 지연 시간
+      }, 200);
     }
   });
 });
