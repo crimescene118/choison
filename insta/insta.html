@@ -42,7 +42,18 @@
     left: calc(25 / 1170 * 100%);
     display: none; /* 초기에는 뒤로가기 버튼 숨김 */
   }
-
+  .goToIndexButton {
+  position: absolute;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  width: calc(50 / 1170 * 100%);
+  height: calc(50 / 2532 * 100%);
+  top: calc(165 / 2532 * 100%);
+  left: calc(25 / 1170 * 100%);
+}
+  
   @media (max-width: 768px) {
     .background {
       padding-bottom: 216.6%; /* 모바일에서도 배경 이미지 비율 유지 */
@@ -60,6 +71,12 @@
       top: calc(165 / 2532 * 100%);
       left: calc(25 / 1170 * 100%);
   }
+    .goToIndexButton {
+    width: calc(50 / 1170 * 100%);
+    height: calc(50 / 2532 * 100%);
+    top: calc(165 / 2532 * 100%);
+    left: calc(25 / 1170 * 100%);
+  }
 
   @keyframes fadeInAnimation {
     from { opacity: 0; }
@@ -72,6 +89,7 @@
 <div class="background" id="background">
   <button class="button" onclick="changeImage()"></button>
   <button class="backButton" onclick="goBack()" style="display:none;">←</button> <!-- 뒤로가기 버튼 추가 -->
+  <button class="goToIndexButton" onclick="goToIndex()">←</button>
 </div>
 
 <script>
@@ -83,6 +101,10 @@ function changeImage() {
 function goBack() {
   document.getElementById('background').style.backgroundImage = "url('최아들인스타.png')";
   document.querySelector('.backButton').style.display = 'none'; // 뒤로가기 버튼 숨김
+}
+  
+function goToIndex() {
+  window.location.href = '../index.html'; // 상위 폴더로 이동
 }
 </script>
 
