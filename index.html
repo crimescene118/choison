@@ -35,24 +35,8 @@
   background-color: white;
   border-radius: 50%;
 }
-.indicator1 {
-  top: calc(590 / 2532 * 100%);
-  left: calc(399 / 1170 * 100%);
-}
-
-.indicator2 {
-  top: calc(590 / 2532 * 100%);
-  left: calc(510 / 1170 * 100%);
-}
-
-.indicator3 {
-  top: calc(590 / 2532 * 100%);
-  left: calc(621 / 1170 * 100%);
-}
-
-.indicator4 {
-  top: calc(590 / 2532 * 100%);
-  left: calc(732 / 1170 * 100%);
+  .button:active {
+  opacity: 0.6; /* 버튼을 누를 때 투명도 적용 */
 }
 
 @media (max-width: 768px) {
@@ -92,10 +76,10 @@
 <button class="button" id="button8" style="top: calc(1497 / 2532 * 100%); left: calc(515 / 1170 * 100%);"></button>
 <button class="button" id="button9" style="top: calc(1497 / 2532 * 100%); left: calc(821 / 1170 * 100%);"></button>
 
-<div id="indicator1" class="indicator"></div>
-<div id="indicator2" class="indicator"></div>
-<div id="indicator3" class="indicator"></div>
-<div id="indicator4" class="indicator"></div>
+<div id="indicator1" class="indicator" style="top: calc(590 / 2532 * 100%); left: calc(399 / 1170 * 100%);"></div>
+<div id="indicator2" class="indicator" style="top: calc(590 / 2532 * 100%); left: calc(510 / 1170 * 100%);"></div>
+<div id="indicator3" class="indicator" style="top: calc(590 / 2532 * 100%); left: calc(621 / 1170 * 100%);"></div>
+<div id="indicator4" class="indicator" style="top: calc(590 / 2532 * 100%); left: calc(732 / 1170 * 100%);"></div>
 </div>
 
 <script>
