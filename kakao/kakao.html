@@ -26,6 +26,7 @@
     background-color: transparent; /* 투명한 배경 */
     border: none; /* 테두리 없음 */
     cursor: pointer;
+    opacity: 0; /* 완전 투명 */
   }
   .button {
     width: calc(1170 / 1170 * 100%);
@@ -40,7 +41,18 @@
     top: calc(165 / 2532 * 100%);
     left: calc(25 / 1170 * 100%);
     display: none; /* Initially hide back buttons */
-  }
+  }    
+  .goToIndexButton {
+  position: absolute;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  cursor: pointer;
+  width: calc(50 / 1170 * 100%);
+  height: calc(50 / 2532 * 100%);
+  top: calc(86 / 2532 * 100%);
+  left: calc(25 / 1170 * 100%);
+}
 
 @media (max-width: 768px) {
   .background {
@@ -62,6 +74,11 @@
       width: calc(50 / 768 * 100%);
       height: calc(50 / 768 * 100%);
     }
+  .goToIndexButton {
+    width: calc(50 / 1170 * 100%);
+    height: calc(50 / 2532 * 100%);
+    top: calc(86 / 2532 * 100%);
+    left: calc(25 / 1170 * 100%);
   
   @keyframes fadeInAnimation {
     from { opacity: 0; }
@@ -75,6 +92,7 @@
   <button class="button button1" onclick="changeImage('최아들카톡.png')"></button>
   <button class="button button2" onclick="changeImage('최아들카톡2.png')"></button>
   <button class="backButton" id="backButton" onclick="goBack()"></button>
+  <button class="goToIndexButton" onclick="goToIndex()">←</button>
 </div>
 
 <script>
@@ -83,12 +101,19 @@ let previousImage = '최아들카톡함.png'; // Initial background image
 function changeImage(newImage) {
   document.getElementById('background').style.backgroundImage = "url('" + newImage + "')";
   document.getElementById('backButton').style.display = 'block'; // Show back button
+  document.querySelector('.goToIndexButton').style.display = 'none'; // index.html로 돌아가는 버튼 숨김
 }
 
 function goBack() {
+  console.log("goBack 함수 호출됨"); // 디버깅 메시지 출력
   document.getElementById('background').style.backgroundImage = "url('" + previousImage + "')";
   document.getElementById('backButton').style.display = 'none'; // Hide back button
+  document.querySelector('.goToIndexButton').style.display = 'block'; // index.html로 돌아가는 버튼 다시 표시
 }
+
+function goToIndex() {
+  window.location.href = '../index.html'; // 상위 폴더로 이동
+}  
 </script>
 
 </body>
