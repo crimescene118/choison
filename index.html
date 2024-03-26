@@ -87,7 +87,7 @@
   const correctInput = ['6', '9', '6', '9'];
   const indicators = ['indicator1', 'indicator2', 'indicator3', 'indicator4'];
 
- document.querySelectorAll('.button').forEach(button => {
+document.querySelectorAll('.button').forEach(button => {
   button.addEventListener('click', function() {
     const numPressed = this.id.replace('button', '');
     userInput.push(numPressed);
@@ -96,21 +96,25 @@
       document.getElementById(indicators[userInput.length - 1]).style.display = 'block';
     }
 
+    // 사용자 입력이 4개가 되었을 때의 처리
     if (userInput.length === 4) {
-      if (userInput.join('') === correctInput.join('')) {
-        document.body.classList.add('slide-up'); // body에 애니메이션 클래스 추가
-        setTimeout(() => {
-          window.location.href = 'phone.html'; // 애니메이션이 끝난 후 페이지 전환
-        }, 500); // 애니메이션 지속 시간과 일치해야 함
-      } else {
-        userInput = [];
-        indicators.forEach(indicator => {
-          document.getElementById(indicator).style.display = 'none';
-        });
+      // 성공 또는 실패 처리 전에 짧은 지연을 추가
+      setTimeout(() => {
+        if (userInput.join('') === correctInput.join('')) {
+          document.body.classList.add('slide-up');
+          setTimeout(() => {
+            window.location.href = 'phone.html';
+          }, 500); // 애니메이션 지속 시간과 일치해야 함
+        } else {
+          userInput = [];
+          indicators.forEach(indicator => {
+            document.getElementById(indicator).style.display = 'none';
+          });
         }
-      }
-    });
+      }, 200); // 네번째 인디케이터가 충분히 보이도록 하기 위한 짧은 지연 시간
+    }
   });
+});
 
   // 초기 상태에서는 모든 인디케이터를 숨깁니다.
   window.onload = () => {
