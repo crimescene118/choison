@@ -96,11 +96,13 @@
 function changeImage() {
   document.getElementById('background').style.backgroundImage = "url('최아들인스타게시글.png')";
   document.querySelector('.backButton').style.display = 'block'; // 뒤로가기 버튼 표시
+  document.querySelector('.goToIndexButton').style.display = 'none'; // index.html로 돌아가는 버튼 숨김
 }
   
 function goBack() {
   document.getElementById('background').style.backgroundImage = "url('최아들인스타.png')";
   document.querySelector('.backButton').style.display = 'none'; // 뒤로가기 버튼 숨김
+  document.querySelector('.goToIndexButton').style.display = 'block'; // index.html로 돌아가는 버튼 다시 표시
 }
   
 function goToIndex() {
