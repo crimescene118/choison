@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최아들메시지</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .background {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 216.6%; /* 이미지의 높이/너비 비율에 맞춤 */
+    background-image: url('최아들문자함.png'); /* 초기 배경 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+  }
+  .button, .backButton {
+    position: absolute;
+    background-color: transparent; /* 투명한 배경 */
+    border: none; /* 테두리 없음 */
+    cursor: pointer;
+  }
+  .button {
+    width: calc(300 / 1170 * 100%);
+    height: calc(75 / 2532 * 100%);
+  }
+  .button1 { top: calc(477 / 2532 * 100%); left: calc(78 / 1170 * 100%); }
+  .button2 { top: calc(720 / 2532 * 100%); left: calc(78 / 1170 * 100%); }
+
+  .backButton {
+    width: calc(50 / 1170 * 100%);
+    height: calc(50 / 2532 * 100%);
+    top: calc(165 / 2532 * 100%);
+    left: calc(25 / 1170 * 100%);
+    display: none; /* Initially hide back buttons */
+  }
+
+  @media (max-width: 768px) {
+    .background {
+      padding-bottom: 216.6%; /* 모바일에서도 배경 이미지 비율 유지 */
+    }
+    .button {
+      /* 모바일 화면에서 버튼 크기 비율 조정 */
+      width: 15%;
+      height: calc(75 / 768 * 100%);
+    }
+    .backButton {
+      width: calc(50 / 768 * 100%);
+      height: calc(50 / 768 * 100%);
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="background" id="background">
+  <button class="button button1" onclick="changeImage('최아들문자2.png')"></button>
+  <button class="button button2" onclick="changeImage('최아들문자.png')"></button>
+  <button class="backButton" id="backButton" onclick="goBack()"></button>
+</div>
+
+<script>
+let previousImage = '최아들문자함.png'; // Initial background image
+
+function changeImage(newImage) {
+  document.getElementById('background').style.backgroundImage = "url('" + newImage + "')";
+  document.getElementById('backButton').style.display = 'block'; // Show back button
+}
+
+function goBack() {
+  document.getElementById('background').style.backgroundImage = "url('" + previousImage + "')";
+  document.getElementById('backButton').style.display = 'none'; // Hide back button
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
