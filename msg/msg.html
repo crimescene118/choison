@@ -27,11 +27,11 @@
     cursor: pointer;
   }
   .button {
-    width: calc(300 / 1170 * 100%);
-    height: calc(75 / 2532 * 100%);
+    width: calc(1170 / 1170 * 100%);
+    height: calc(200 / 2532 * 100%);
   }
-  .button1 { top: calc(477 / 2532 * 100%); left: calc(78 / 1170 * 100%); }
-  .button2 { top: calc(720 / 2532 * 100%); left: calc(78 / 1170 * 100%); }
+  .button1 { top: calc(432 / 2532 * 100%); left: 0%; }
+  .button2 { top: calc(648 / 2532 * 100%); left: 0%; }
 
   .backButton {
     width: calc(50 / 1170 * 100%);
@@ -42,14 +42,21 @@
   }
 
   @media (max-width: 768px) {
-    .background {
-      padding-bottom: 216.6%; /* 모바일에서도 배경 이미지 비율 유지 */
-    }
-    .button {
-      /* 모바일 화면에서 버튼 크기 비율 조정 */
-      width: 15%;
-      height: calc(75 / 768 * 100%);
-    }
+  .background {
+    padding-bottom: 216.6%; /* 모바일에서도 배경 이미지 비율 유지 */
+  }
+  .button {
+    /* 모바일 화면에서 버튼 크기 비율 조정. 비율 유지를 위해 높이와 너비를 동일 비율로 조정 */
+    width: calc(1170 / 1170 * 100%);
+    height: calc(200 / 2532 * 100%);
+  }
+  .button1, .button2 {
+    /* 모바일에서 버튼 위치 조정. 가로 위치는 변경 없이, 세로 위치만 비율에 맞게 조정 */
+    left: 0%; /* 가로 위치 변경 없음 */
+  }
+  .button1 { top: calc(432 / 2532 * 100%); }
+  .button2 { top: calc(648 / 2532 * 100%); }
+}
     .backButton {
       width: calc(50 / 768 * 100%);
       height: calc(50 / 768 * 100%);
