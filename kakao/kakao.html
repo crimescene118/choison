@@ -90,8 +90,8 @@
 <body>
 
 <div class="background" id="background">
-  <button class="button button1" onclick="changeImage('최아들카톡.png')"></button>
-  <button class="button button2" onclick="changeImage('최아들카톡2.png')"></button>
+  <button class="button button1" id="button1" onclick="changeImage('최아들카톡.png', 'button1')"></button>
+  <button class="button button2" id="button2" onclick="changeImage('최아들카톡2.png', 'button2')"></button>
   <button class="backButton" id="backButton" onclick="goBack()"></button>
   <button class="goToIndexButton" onclick="goToIndex()">←</button>
 </div>
@@ -103,6 +103,18 @@ function changeImage(newImage) {
   document.getElementById('background').style.backgroundImage = "url('" + newImage + "')";
   document.getElementById('backButton').style.display = 'block'; // Show back button
   document.querySelector('.goToIndexButton').style.display = 'none'; // index.html로 돌아가는 버튼 숨김
+ 
+  // 모든 버튼의 배경색을 초기화합니다.
+  const buttons = document.querySelectorAll('.button');
+  buttons.forEach(button => {
+    button.style.backgroundColor = 'transparent'; // 다른 버튼들은 투명하게 설정
+  });
+
+  // 클릭된 버튼의 배경색을 설정합니다.
+  const clickedButton = document.getElementById(buttonId);
+  if (clickedButton) {
+    clickedButton.style.backgroundColor = 'rgba(156, 189, 227, 0.8)'; // #9cbde3 색상과 80% 투명도
+  }
 }
 
 function goBack() {
