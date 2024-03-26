@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lock Screen</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .background {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 216.6%; /* 이미지의 높이/너비 비율에 맞춤 */
+  background-image: url('최아들잠금.PNG'); /* 배경 이미지 경로 */
+  background-size: cover;
+  background-position: center;
+}
+.button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: calc(140 / 1170 * 100%);
+  height: calc(140 / 2532 * 100%);
+}
+  .indicator {
+  position: absolute;
+  width: calc(39 / 1170 * 100%);
+  height: calc(39 / 2532 * 100%);
+  background-color: white;
+  border-radius: 50%;
+}
+.indicator1 {
+  top: calc(590 / 2532 * 100%);
+  left: calc(399 / 1170 * 100%);
+}
+
+.indicator2 {
+  top: calc(590 / 2532 * 100%);
+  left: calc(510 / 1170 * 100%);
+}
+
+.indicator3 {
+  top: calc(590 / 2532 * 100%);
+  left: calc(621 / 1170 * 100%);
+}
+
+.indicator4 {
+  top: calc(590 / 2532 * 100%);
+  left: calc(732 / 1170 * 100%);
+}
+
+@media (max-width: 768px) {
+.background {
+    padding-bottom: 216.6%; /* 모바일 화면 비율에 맞게 조정 */
+  }
+  .button {
+}
+  .indicator{
+  }
+
+  @keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<div class="background">
+<button class="button" id="button0" style="top: calc(1789 / 2532 * 100%); left: calc(515 / 1170 * 100%);"></button>
+<button class="button" id="button1" style="top: calc(927 / 2532 * 100%); left: calc(209 / 1170 * 100%);"></button>
+<button class="button" id="button2" style="top: calc(927 / 2532 * 100%); left: calc(515 / 1170 * 100%);"></button>
+<button class="button" id="button3" style="top: calc(927 / 2532 * 100%); left: calc(821 / 1170 * 100%);"></button>
+<button class="button" id="button4" style="top: calc(1219 / 2532 * 100%); left: calc(209 / 1170 * 100%);"></button>
+<button class="button" id="button5" style="top: calc(1219 / 2532 * 100%); left: calc(515 / 1170 * 100%);"></button>
+<button class="button" id="button6" style="top: calc(1219 / 2532 * 100%); left: calc(821 / 1170 * 100%);"></button>
+<button class="button" id="button7" style="top: calc(1497 / 2532 * 100%); left: calc(209 / 1170 * 100%);"></button>
+<button class="button" id="button8" style="top: calc(1497 / 2532 * 100%); left: calc(515 / 1170 * 100%);"></button>
+<button class="button" id="button9" style="top: calc(1497 / 2532 * 100%); left: calc(821 / 1170 * 100%);"></button>
+
+<div id="indicator1" class="indicator"></div>
+<div id="indicator2" class="indicator"></div>
+<div id="indicator3" class="indicator"></div>
+<div id="indicator4" class="indicator"></div>
+</div>
+
+<script>
+  let userInput = [];
+  const correctInput = ['6', '9', '6', '9'];
+  const indicators = ['indicator1', 'indicator2', 'indicator3', 'indicator4'];
+
+ document.querySelectorAll('.button').forEach(button => {
+  button.addEventListener('click', function() {
+    const numPressed = this.id.replace('button', '');
+    userInput.push(numPressed);
+
+    if (userInput.length <= 4) {
+      document.getElementById(indicators[userInput.length - 1]).style.display = 'block';
+    }
+
+    if (userInput.length === 4) {
+      if (userInput.join('') === correctInput.join('')) {
+        document.body.classList.add('slide-up'); // body에 애니메이션 클래스 추가
+        setTimeout(() => {
+          window.location.href = 'phone.html'; // 애니메이션이 끝난 후 페이지 전환
+        }, 500); // 애니메이션 지속 시간과 일치해야 함
+      } else {
+        userInput = [];
+        indicators.forEach(indicator => {
+          document.getElementById(indicator).style.display = 'none';
+        });
+        }
+      }
+    });
+  });
+
+  // 초기 상태에서는 모든 인디케이터를 숨깁니다.
+  window.onload = () => {
+    indicators.forEach(indicator => {
+      document.getElementById(indicator).style.display = 'none';
+    });
+  };
+</script>
+
+</body>
+</html>
