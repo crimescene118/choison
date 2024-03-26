@@ -57,6 +57,21 @@
       width: calc(50 / 768 * 100%);
       height: calc(50 / 768 * 100%);
     }
+
+    @keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: scale(0.5); /* 시작 시 50% 크기 */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* 종료 시 원래 크기 */
+  }
+}
+
+.fadeIn {
+  animation: fadeInAnimation 1s ease-out forwards;
+}
   }
 </style>
 </head>
@@ -74,13 +89,17 @@
 let previousImage = '최아들배경.PNG'; // Initial background image
 
 function showImage() {
-  document.getElementById('background').style.backgroundImage = "url('최아들전화.png')";
-  document.getElementById('backButton').style.display = 'block'; // Show back button
+  const background = document.getElementById('background');
+  background.style.backgroundImage = "url('최아들전화.png')";
+  background.classList.add('fadeIn'); // 애니메이션 클래스 추가
+  document.getElementById('backButton').style.display = 'block'; // 뒤로가기 버튼 표시
 }
 
 function goBack() {
-  document.getElementById('background').style.backgroundImage = "url('" + previousImage + "')";
-  document.getElementById('backButton').style.display = 'none'; // Hide back button
+  const background = document.getElementById('background');
+  background.style.backgroundImage = "url('" + previousImage + "')";
+  background.classList.remove('fadeIn'); // 애니메이션 클래스 제거
+  document.getElementById('backButton').style.display = 'none'; // 뒤로가기 버튼 숨김
 }
 </script>
 
