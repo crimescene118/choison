@@ -101,6 +101,7 @@ function changeImage() {
 }
   
 function goBack() {
+  console.log("goBack 함수 호출됨"); // 디버깅 메시지 출력
   document.getElementById('background').style.backgroundImage = "url('최아들인스타.png')";
   document.querySelector('.backButton').style.display = 'none'; // 뒤로가기 버튼 숨김
   document.querySelector('.goToIndexButton').style.display = 'block'; // index.html로 돌아가는 버튼 다시 표시
