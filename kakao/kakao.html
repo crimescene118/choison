@@ -32,9 +32,10 @@
     width: calc(1170 / 1170 * 100%);
     height: calc(194 / 2532 * 100%);
   }
-  .button1 { top: calc(769 / 2532 * 100%); left: 0%; }
-  .button2 { top: calc(963 / 2532 * 100%); left: 0%; }
-
+  .button1 { top: calc(552 / 2532 * 100%); left: 0%; }
+  .button2 { top: calc(769 / 2532 * 100%); left: 0%; }
+  .button3 { top: calc(963 / 2532 * 100%); left: 0%; }
+  
   .backButton {
     width: calc(50 / 1170 * 100%);
     height: calc(50 / 2532 * 100%);
@@ -63,12 +64,13 @@
     width: calc(1170 / 1170 * 100%);
     height: calc(194 / 2532 * 100%);
   }
-  .button1, .button2 {
+  .button1, .button2, .button3 {
     /* 모바일에서 버튼 위치 조정. 가로 위치는 변경 없이, 세로 위치만 비율에 맞게 조정 */
     left: 0%; /* 가로 위치 변경 없음 */
   }
-  .button1 { top: calc(769 / 2532 * 100%); }
-  .button2 { top: calc(963 / 2532 * 100%); }
+  .button1 { top: calc(552 / 2532 * 100%); }
+  .button2 { top: calc(769 / 2532 * 100%); }
+  .button3 { top: calc(963 / 2532 * 100%); }
 }
     .backButton {
       width: calc(50 / 768 * 100%);
@@ -90,8 +92,9 @@
 <body>
 
 <div class="background" id="background">
-  <button class="button button1" id="button1" onclick="changeImage('최아들카톡.png', 'button1')"></button>
+  <button class="button button1" id="button1" onclick="changeImage('최아들카톡1.png', 'button1')"></button>
   <button class="button button2" id="button2" onclick="changeImage('최아들카톡2.png', 'button2')"></button>
+  <button class="button button3" id="button3" onclick="changeImage('최아들카톡3.png', 'button3')"></button>
   <button class="backButton" id="backButton" onclick="goBack()"></button>
   <button class="goToIndexButton" onclick="goToIndex()">←</button>
 </div>
