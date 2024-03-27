@@ -102,6 +102,8 @@ let previousImage = '최아들문자함.png'; // Initial background image
 function changeImage(newImage) {
   document.getElementById('background').style.backgroundImage = "url('" + newImage + "')";
   document.getElementById('backButton').style.display = 'block'; // Show back button
+  document.querySelector('.button1').style.display = 'none';
+  document.querySelector('.button2').style.display = 'none';
   document.querySelector('.goToIndexButton').style.display = 'none'; // index.html로 돌아가는 버튼 숨김
 }
 
@@ -109,6 +111,8 @@ function goBack() {
   console.log("goBack 함수 호출됨"); // 디버깅 메시지 출력
   document.getElementById('background').style.backgroundImage = "url('" + previousImage + "')";
   document.getElementById('backButton').style.display = 'none'; // Hide back button
+  document.querySelector('.button1').style.display = 'block';
+  document.querySelector('.button2').style.display = 'block';
   document.querySelector('.goToIndexButton').style.display = 'block'; // index.html로 돌아가는 버튼 다시 표시
 }
 
