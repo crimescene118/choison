@@ -114,8 +114,15 @@ let previousImage = '최아들카톡함.png'; // Initial background image
 function changeImage(newImage, buttonId) {
   document.getElementById('background').style.backgroundImage = "url('" + newImage + "')";
   document.getElementById('backButton').style.display = 'block'; // Show back button
+  document.querySelector('.button1').style.display = 'none';
+  document.querySelector('.button2').style.display = 'none';
+  document.querySelector('.button3').style.display = 'none';
+  document.querySelector('.button4').style.display = 'none';
+  document.querySelector('.button5').style.display = 'none';
+  document.querySelector('.button6').style.display = 'none';
   document.querySelector('.goToIndexButton').style.display = 'none'; // index.html로 돌아가는 버튼 숨김
- 
+
+  
   // 모든 버튼의 배경색을 초기화합니다.
   const buttons = document.querySelectorAll('.button');
   buttons.forEach(button => {
@@ -134,6 +141,12 @@ function goBack() {
   document.getElementById('background').style.backgroundImage = "url('" + previousImage + "')";
   document.getElementById('backButton').style.display = 'none'; // Hide back button
   document.querySelector('.goToIndexButton').style.display = 'block'; // index.html로 돌아가는 버튼 다시 표시
+  document.querySelector('.button1').style.display = 'block';
+  document.querySelector('.button2').style.display = 'block';
+  document.querySelector('.button3').style.display = 'block';
+  document.querySelector('.button4').style.display = 'block';
+  document.querySelector('.button5').style.display = 'block';
+  document.querySelector('.button6').style.display = 'block';
   // 배경색을 초기화합니다.
   const buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
